@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@layer base {
+  :root {
+    --mojito-green: #3eb489;
+    --mojito-lime-yellow: #bfff00;
+    --mojito-rum-white: #f4f4f4;
+    --mojito-fresh-mint: #cfffb0;
+    --mojito-cool-teal: #2ca58d;
+    --mojito-dark-rum: #654332;
+
+    --mojito-text-a: #2a2a2a;
+    --mojito-text-b: #495e57;
+    --mojito-title: #5c4033;
+    --mojito-empasize: #e1ad01;
+  }
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body,
+html {
+  background-color: var(--mojito-rum-white);
+  color: var(--mojito-text-a);
+  font-size: 1rem;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Background Colors */
+.mojito-green {
+  color: var(--mojito-green) !important;
+}
+.mojito-lime-yellow {
+  color: var(--mojito-lime-yellow) !important;
+}
+.mojito-rum-white {
+  color: var(--mojito-rum-white) !important;
+}
+.mojito-fresh-mint {
+  color: var(--mojito-fresh-mint) !important;
+}
+.mojito-cool-teal {
+  color: var(--mojito-cool-teal) !important;
+}
+.mojito-dark-rum {
+  color: var(--mojito-dark-rum) !important;
+}
+
+/* Text Colors */
+.mojito-text-a {
+  color: var(--mojito-text-a) !important;
+}
+.mojito-text-b {
+  color: var(--mojito-text-b) !important;
+}
+.mojito-title {
+  color: var(--mojito-title) !important;
+}
+.mojito-emphasize {
+  color: var(--mojito-empasize) !important;
+}
+
+@layer utilities {
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bg-mojito-green {
+    background-color: var(--mojito-green) !important;
+  }
+  .bg-mojito-lime-yellow {
+    background-color: var(--mojito-lime-yellow) !important;
+  }
+  .bg-mojito-rum-white {
+    background-color: var(--mojito-rum-white) !important;
+  }
+  .bg-mojito-fresh-mint {
+    background-color: var(--mojito-fresh-mint) !important;
+  }
+  .bg-mojito-cool-teal {
+    background-color: var(--mojito-cool-teal) !important;
+  }
+  .bg-mojito-dark-rum {
+    background-color: var(--mojito-dark-rum) !important;
+  }
 }

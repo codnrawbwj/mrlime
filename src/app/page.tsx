@@ -1,5 +1,7 @@
-import Image from "next/image";
-
 export default function Home() {
-  return <>Hello World!</>;
+  return (
+    <main className="bg-mojito-green">
+      <p>Hello World!</p>
+    </main>
+  );
 }
