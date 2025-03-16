@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   title: "Cocktail Dictionary | Mr.Lime",
   description:
     "Mr.Lime is a web project designed to provide quick and easy access to cocktail information, including recipes, ingredients, and mixology techniques.",
+  openGraph: {
+    title: "Cocktail Dictionary | Mr.Lime",
+    description:
+      "Mr.Lime is a web project designed to provide quick and easy access to cocktail information, including recipes, ingredients, and mixology techniques.",
+  },
 };
 
 export default function RootLayout({
