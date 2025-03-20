@@ -1,10 +1,10 @@
-import ItemCard from "@/components/ui/item-card";
+import LandingCarousel from "@/components/LandingPage/LandingCarousel";
 import React from "react";
 
 const LandingPage = () => {
   return (
     <>
-      <ItemCard name="Mojito" img="/mojito-image.jpeg" />
+      <LandingCarousel />
     </>
   );
 };
