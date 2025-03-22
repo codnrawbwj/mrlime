@@ -132,6 +132,10 @@ html {
   .bg-mojito-dark-rum {
     background-color: var(--mojito-dark-rum) !important;
   }
+
+  .border-mojito-text-a {
+    border-color: var(--mojito-text-a) !important;
+  }
 }
 
 :root {
