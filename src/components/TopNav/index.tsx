@@ -21,7 +21,15 @@ const TopNav = () => {
     <>
       <nav className="h-20 bg-mojito-cool-teal w-full shadow-md mojito-rum-white px-4 flex-center">
         <div className="m-auto max-w-7xl w-full flex items-center justify-between px-4">
-          <button className="relative w-6 h-6" onClick={handleMenuOpen}>
+          <button
+            className={clsx(
+              "relative w-6 h-6 transition-all duration-500 ease-in-out",
+              isSearchOpen
+                ? "opacity-0 translate-x[-20px] pointer-events-none"
+                : "opacity-100 translate-x-0"
+            )}
+            onClick={handleMenuOpen}
+          >
             <HamburgerMenuIcon
               style={{ height: 24, width: 24 }}
               fill="#f4f4f4"
@@ -39,8 +47,24 @@ const TopNav = () => {
               )}
             />
           </button>
-          <h2 className="font-bold text-2xl">Mr.Lime</h2>
-          <button className="relative w-6 h-6" onClick={handleSearchOpen}>
+          <h2
+            className={clsx(
+              "font-bold text-2xl transition-all duration-500 ease-in-out",
+              isSearchOpen ? "translate-x-[-120px]" : "translate-x-0",
+              isMenuOpen ? "translate-x-[120px]" : "translate-x-0"
+            )}
+          >
+            Mr.Lime
+          </h2>
+          <button
+            className={clsx(
+              "relative w-6 h-6 transition-all duration-500 ease-in-out",
+              isMenuOpen
+                ? "opacity-0 translate-x[-20px] pointer-events-none"
+                : "opacity-100 translate-x-0"
+            )}
+            onClick={handleSearchOpen}
+          >
             <SearchIcon
               style={{ height: 24, width: 24 }}
               fill="var(--mojito-rum-white)"
