@@ -34,7 +34,7 @@ export const Menu: MenuType[] = [
 
 const TopNavMenuPage = () => {
   return (
-    <div className="fixed z-1000 w-[100vw] h-[calc(100vh-80px)] bg-mojito-rum-white flex-col items-center justify-start">
+    <div className="fixed top-20 left-0 right-0 bottom-0 overflow-hidden z-1000 w-[100vw] h-[calc(100vh-80px)] bg-mojito-rum-white flex-col items-center justify-start">
       {Menu.map((item, index) => (
         <div key={index} className="px-4 py-7 w-full justify-start">
           <div className="flex-col gap-2 ">

@@ -14,7 +14,7 @@ const TopNavSearchPage = () => {
   }, []);
 
   return (
-    <div className="fixed z-1000 w-[100vw] h-[calc(100vh-80px)] bg-mojito-rum-white flex-col items-center justify-center gap-15">
+    <div className="fixed top-20 left-0 right-0 bottom-0 overflow-hidden z-1000 w-[100vw] h-[calc(100vh-80px)] bg-mojito-rum-white flex-col items-center justify-center gap-15">
       <input
         placeholder="🍹 What can I get for you?"
         className="border-black p-3 text-[1rem] border-b-2 border-mojito-text-a w-[300px] focus:outline-none"
