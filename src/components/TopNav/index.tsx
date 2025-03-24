@@ -3,6 +3,7 @@ import { CloseIcon, HamburgerMenuIcon, SearchIcon } from "@/assets";
 import TopNavMenuPage from "@/components/TopNav/TopNavMenuPage";
 import TopNavSearchPage from "@/components/TopNav/TopNavSearchPage";
 import clsx from "clsx";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const TopNav = () => {
@@ -15,6 +16,11 @@ const TopNav = () => {
 
   const handleMenuOpen = () => {
     setIsMenuOpen((prev) => !prev);
+  };
+
+  const resetSidebars = () => {
+    setIsSearchOpen(false);
+    setIsMenuOpen(false);
   };
 
   return (
@@ -34,7 +40,7 @@ const TopNav = () => {
               style={{ height: 24, width: 24 }}
               fill="#f4f4f4"
               className={clsx(
-                "absolute top-0 left-0 transition-all duration-200 ease-in-out",
+                "absolute top-0 left-0 transition-all duration-200 ease-in-out cursor-pointer",
                 isMenuOpen ? "opacity-0 scale-90" : "opactiy-100 scale-100"
               )}
             />
@@ -42,7 +48,7 @@ const TopNav = () => {
               style={{ height: 24, width: 24 }}
               fill="var(--mojito-rum-white)"
               className={clsx(
-                "absolute top-0 left-0 transition-all duration-200 ease-in-out",
+                "absolute top-0 left-0 transition-all duration-200 ease-in-out cursor-pointer",
                 !isMenuOpen ? "opacity-0 scale-90" : "opactiy-100 scale-100"
               )}
             />
@@ -54,7 +60,9 @@ const TopNav = () => {
               isMenuOpen ? "translate-x-[120px]" : "translate-x-0"
             )}
           >
-            Mr.Lime
+            <Link href="/" onClick={resetSidebars}>
+              Mr.Lime
+            </Link>
           </h2>
           <button
             className={clsx(
@@ -85,7 +93,7 @@ const TopNav = () => {
         </div>
       </nav>
       {isSearchOpen && <TopNavSearchPage />}
-      {isMenuOpen && <TopNavMenuPage />}
+      {isMenuOpen && <TopNavMenuPage resetSidebars={resetSidebars} />}
     </>
   );
 };

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 type MenuType = {
@@ -23,8 +24,8 @@ export const Menu: MenuType[] = [
     link: "/collections",
   },
   {
-    title: "AboutMe",
-    link: "/about",
+    title: "About Me",
+    link: "/about-me",
   },
   {
     title: "Contact",
@@ -32,16 +33,23 @@ export const Menu: MenuType[] = [
   },
 ];
 
-const TopNavMenuPage = () => {
+const TopNavMenuPage: React.FC<{ resetSidebars: () => void }> = ({
+  resetSidebars,
+}) => {
   return (
     <div className="fixed top-20 left-0 right-0 bottom-0 overflow-hidden z-1000 w-[100vw] h-[calc(100vh-80px)] bg-mojito-rum-white flex-col items-center justify-start">
       {Menu.map((item, index) => (
-        <div key={index} className="px-4 py-7 w-full justify-start">
+        <Link
+          key={index}
+          href={item.link}
+          className="px-4 py-7 w-full justify-start"
+          onClick={resetSidebars}
+        >
           <div className="flex-col gap-2 ">
             <h3 className="font-semibold text-xl">{item.title}</h3>
             {item.description && <p>{item.description}</p>}
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
