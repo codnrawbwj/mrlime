@@ -2,6 +2,7 @@ import clsx from "clsx";
 import HamburgerMenuSVG from "./svg/burger-menu-icon.svg";
 import SearchIconSVG from "./svg/search-icon.svg";
 import CloseIconSVG from "./svg/close-icon.svg";
+import ArrowRightSVG from "./svg/arrow-right.svg";
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
@@ -30,6 +31,14 @@ export const CloseIcon: React.FC<IconProps> = ({ className, ...rest }) => {
   return (
     <span className={clsx(className, "inline-block")}>
       <CloseIconSVG {...rest} />
+    </span>
+  );
+};
+
+export const ArrowRightIcon: React.FC<IconProps> = ({ className, ...rest }) => {
+  return (
+    <span className={clsx(className, "inline-block")}>
+      <ArrowRightSVG {...rest} />
     </span>
   );
 };
