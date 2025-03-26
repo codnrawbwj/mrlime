@@ -3,7 +3,7 @@ import React from "react";
 
 const LandingPage = () => {
   return (
-    <div className="top-20 left-0 right-0 bottom-0 overflow-hidden z-1000 w-full h-[calc(100vh-80px)] bg-mojito-rum-white flex-col items-center justify-start pt-20 gap-15">
+    <div className="w-full h-[calc(100vh-80px)] bg-mojito-rum-white flex-col items-center justify-start pt-20 gap-15">
       <h1 className="font-semibold text-2xl">🍹 What can I get for you?</h1>
       <div className="w-[300px] rounded-2xl shadow-md flex items-center justify-between pr-4">
         <input
