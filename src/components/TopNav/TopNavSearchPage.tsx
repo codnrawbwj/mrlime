@@ -3,6 +3,7 @@ import {
   COCKTAIL_TMI_LIST,
   CocktailTMIType,
 } from "@/components/TopNav/cocktailTMIList";
+import { useLockScroll } from "@/lib/hooks/use-lock-scroll";
 import { getRandomInt } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
@@ -12,11 +13,9 @@ const TopNavSearchPage = () => {
 
   useEffect(() => {
     setRandomTMI(COCKTAIL_TMI_LIST[getRandomInt(10)]);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, []);
+
+  useLockScroll();
 
   return createPortal(
     <div className="fixed top-20 left-0 right-0 bottom-0 overflow-hidden z-1000 w-[100vw] h-[calc(100vh-80px)] bg-mojito-rum-white flex-col items-center justify-start pt-20 gap-15">
