@@ -1,3 +1,4 @@
+import TasteLabel from "@/components/ui/taste-label";
 import { COCKTAIL_HASH, CocktailType } from "@/constant/dummy";
 import Image from "next/image";
 import React from "react";
@@ -18,9 +19,12 @@ const Page = () => {
             key={cocktail._id}
             className="rounded-lg w-full aspect-[3/1] bg-mojito-white-rum mx-auto overflow-hidden shadow-md flex "
           >
-            <div className="grow flex-col gap-4 justify-center px-4">
-              <div className="flex">
-                <h3 className="texl-3xl font-bold">{cocktail.name}</h3>
+            <div className="grow flex-col gap-2 justify-center px-4">
+              <h3 className="texl-3xl font-bold">{cocktail.name}</h3>
+              <div className="flex justify-start items-center gap-1">
+                {cocktail.tasteLabel.map((label) => (
+                  <TasteLabel key={label} tasteLabel={label} />
+                ))}
               </div>
               <p className="text-[12px] italic">
                 &quot;{cocktail.tasteReview}&quot;
