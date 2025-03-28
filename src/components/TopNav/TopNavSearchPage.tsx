@@ -5,15 +5,20 @@ import {
 } from "@/components/TopNav/cocktailTMIList";
 import { getRandomInt } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 const TopNavSearchPage = () => {
   const [randomTMI, setRandomTMI] = useState<CocktailTMIType | undefined>();
 
   useEffect(() => {
     setRandomTMI(COCKTAIL_TMI_LIST[getRandomInt(10)]);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, []);
 
-  return (
+  return createPortal(
     <div className="fixed top-20 left-0 right-0 bottom-0 overflow-hidden z-1000 w-[100vw] h-[calc(100vh-80px)] bg-mojito-rum-white flex-col items-center justify-start pt-20 gap-15">
       <input
         placeholder="🍹 What can I get for you?"
@@ -36,7 +41,8 @@ const TopNavSearchPage = () => {
             </p>
           ))}
       </div>
-    </div>
+    </div>,
+    document.getElementById("portal-root")!
   );
 };
 

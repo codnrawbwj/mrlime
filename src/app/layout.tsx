@@ -36,6 +36,7 @@ export default function RootLayout({
       >
         <TopNav />
         {children}
+        <div id="portal-root" />
       </body>
     </html>
   );

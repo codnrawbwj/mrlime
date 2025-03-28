@@ -1,5 +1,6 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
+import { createPortal } from "react-dom";
 
 type MenuType = {
   title: string;
@@ -36,7 +37,14 @@ export const Menu: MenuType[] = [
 const TopNavMenuPage: React.FC<{ resetSidebars: () => void }> = ({
   resetSidebars,
 }) => {
-  return (
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
+  return createPortal(
     <div className="fixed top-20 left-0 right-0 bottom-0 overflow-hidden z-1000 w-[100vw] h-[calc(100vh-80px)] bg-mojito-rum-white flex-col items-center justify-start">
       {Menu.map((item, index) => (
         <Link
@@ -51,7 +59,8 @@ const TopNavMenuPage: React.FC<{ resetSidebars: () => void }> = ({
           </div>
         </Link>
       ))}
-    </div>
+    </div>,
+    document.getElementById("portal-root")!
   );
 };
 
