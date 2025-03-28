@@ -2,7 +2,7 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import React from "react";
-import ItemCard from "@/components/ItemCard/item-card";
+import ItemCard from "@/components/ui/item-card";
 
 const responsive = {
   superLargeDesktop: {
