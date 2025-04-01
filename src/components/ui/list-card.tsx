@@ -1,12 +1,15 @@
 import TasteLabel from "@/components/ui/taste-label";
 import { CocktailType } from "@/constant/dummy";
+import { toSlug } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const ListCard: React.FC<{ cocktail: CocktailType }> = ({ cocktail }) => {
+  const sluggedCocktailName = toSlug(cocktail.name);
+
   return (
-    <Link href={`/cocktails/${cocktail.name}`}>
+    <Link href={`/cocktails/${sluggedCocktailName}`}>
       <article className="rounded-lg max-w-[340px] aspect-[3/1] bg-mojito-white-rum mx-auto overflow-hidden shadow-md flex">
         <div className="grow flex-col gap-2 justify-center px-4">
           <h3 className="texl-3xl font-bold">{cocktail.name}</h3>

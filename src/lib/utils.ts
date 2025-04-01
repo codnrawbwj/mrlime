@@ -8,3 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export function getRandomInt(rangeMax: number) {
   return Math.floor(Math.random() * rangeMax);
 }
+
+export function toSlug(text: string) {
+  return text.toLowerCase().replace(/\s+/g, "-");
+}
