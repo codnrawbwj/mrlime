@@ -1,6 +1,7 @@
 export interface CocktailType {
   _id: string;
   name: string;
+  alcoholPercent: number;
   tasteReview: string;
   pictureURL: string;
   ingredients: string[];
@@ -12,6 +13,7 @@ export const COCKTAIL_HASH: CocktailType[] = [
   {
     _id: "1",
     name: "Margarita",
+    alcoholPercent: 33,
     tasteReview:
       "A balanced mix of sweet and tart, with a refreshing citrus kick.",
     pictureURL: "/margarita_image.jpeg",
@@ -26,6 +28,7 @@ export const COCKTAIL_HASH: CocktailType[] = [
   {
     _id: "2",
     name: "Mojito",
+    alcoholPercent: 13,
     tasteReview: "A refreshing and vibrant cocktail with a minty coolness.",
     pictureURL: "/mojito-image.jpeg",
     ingredients: ["Rum", "Lime juice", "Mint", "Sugar", "Soda water"],
@@ -39,6 +42,7 @@ export const COCKTAIL_HASH: CocktailType[] = [
   {
     _id: "3",
     name: "Old Fashioned",
+    alcoholPercent: 32,
     tasteReview: "A rich and complex cocktail with a strong whiskey flavor.",
     pictureURL: "/oldFasioned_image.jpeg",
     ingredients: ["Bourbon whiskey", "Sugar", "Angostura bitters"],
@@ -52,6 +56,7 @@ export const COCKTAIL_HASH: CocktailType[] = [
   {
     _id: "4",
     name: "Manhattan",
+    alcoholPercent: 30,
     tasteReview:
       "A bold and sophisticated cocktail with a strong whiskey presence.",
     pictureURL: "/manhattan_image.jpeg",
@@ -66,6 +71,7 @@ export const COCKTAIL_HASH: CocktailType[] = [
   {
     _id: "5",
     name: "Martini",
+    alcoholPercent: 32,
     tasteReview: "A classic and dry cocktail with a clean and crisp taste.",
     pictureURL: "/martini_image.jpeg",
     ingredients: ["Gin or Vodka", "Dry vermouth"],
@@ -79,6 +85,7 @@ export const COCKTAIL_HASH: CocktailType[] = [
   {
     _id: "6",
     name: "Cosmopolitan",
+    alcoholPercent: 27,
     tasteReview: "A fruity and vibrant cocktail with a tart cranberry flavor.",
     pictureURL: "/cosmopolitan_image.jpeg",
     ingredients: ["Vodka", "Cranberry juice", "Lime juice", "Triple sec"],
@@ -92,6 +99,7 @@ export const COCKTAIL_HASH: CocktailType[] = [
   {
     _id: "7",
     name: "Pina Colada",
+    alcoholPercent: 13,
     tasteReview:
       "A creamy and tropical cocktail with a sweet pineapple and coconut flavor.",
     pictureURL: "/pinaColada_image.jpeg",
@@ -106,6 +114,7 @@ export const COCKTAIL_HASH: CocktailType[] = [
   {
     _id: "8",
     name: "Daiquiri",
+    alcoholPercent: 25,
     tasteReview: "A simple and refreshing cocktail with a tart lime flavor.",
     pictureURL: "/daiquiri_image.jpeg",
     ingredients: ["Rum", "Lime juice", "Sugar"],
@@ -119,6 +128,7 @@ export const COCKTAIL_HASH: CocktailType[] = [
   {
     _id: "9",
     name: "Bloody Mary",
+    alcoholPercent: 10,
     tasteReview: "A savory and spicy cocktail with a tomato-based flavor.",
     pictureURL: "/bloodyMary_image.jpeg",
     ingredients: [
@@ -138,6 +148,7 @@ export const COCKTAIL_HASH: CocktailType[] = [
   {
     _id: "10",
     name: "Moscow Mule",
+    alcoholPercent: 16,
     tasteReview: "A zesty and refreshing cocktail with a ginger kick.",
     pictureURL: "/moscowMule_image.jpeg",
     ingredients: ["Vodka", "Lime juice", "Ginger beer"],
