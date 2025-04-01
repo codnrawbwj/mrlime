@@ -12,3 +12,10 @@ export function getRandomInt(rangeMax: number) {
 export function toSlug(text: string) {
   return text.toLowerCase().replace(/\s+/g, "-");
 }
+
+export function toUnSlug(text: string) {
+  return text
+    .split("-")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(" ");
+}
