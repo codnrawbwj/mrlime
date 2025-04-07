@@ -8,26 +8,28 @@ type IngredientType =
   | "carbonated"
   | "others";
 
-enum UnitType {
-  Ml = "ml",
-  Oz = "oz",
-  Tsp = "tsp",
-  Tbsp = "tbsp",
-  Dash = "dash",
-  Drop = "drop",
-  Slice = "slice",
-  Piece = "piece",
-  Leaf = "leaf",
-  Cube = "cube",
-  Whole = "whole",
-  Part = "part",
-}
+export const UnitValues = [
+  "ml",
+  "oz",
+  "tsp",
+  "tbsp",
+  "dash",
+  "drop",
+  "slice",
+  "piece",
+  "leaf",
+  "cube",
+  "whole",
+  "part",
+] as const;
+
+export type UnitValuesType = (typeof UnitValues)[number];
 
 export interface IIngredient extends Document {
   name: string;
   type: IngredientType;
   abv: number;
-  unit: UnitType[];
+  unit: UnitValuesType[];
   image?: string;
   description: string;
   isMainAlcohol?: boolean;
@@ -37,7 +39,7 @@ const IngredientSchema: Schema = new Schema({
   name: { type: String, required: true },
   type: { type: String, required: true },
   abv: { type: Number, required: true },
-  unit: [{ type: String, enum: Object.values(UnitType), required: true }],
+  unit: [{ type: String, required: true }],
   image: { type: String },
   description: { type: String },
   isMainAlcohol: { type: Boolean },
