@@ -1,30 +1,30 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-type IngredientType =
-  | 'juice'
-  | 'syrup'
-  | 'alcohol'
-  | 'garnish'
-  | 'carbonated'
-  | 'others';
-
+export enum IngredientEnumType {
+  JUICE = 'juice',
+  SYRUP = 'syrup',
+  ALCOHOL = 'alcohol',
+  GARNISH = 'garnish',
+  CARBONATED = 'carbonated',
+  OTHERS = 'others',
+}
 @Schema()
-export class Ingredient extends Document {
+export class Ingredient {
   @Prop({ required: true })
   name: string;
 
-  @Prop({ type: String, required: true })
-  type: IngredientType;
+  @Prop({ type: String, enum: IngredientEnumType, required: true })
+  type: IngredientEnumType;
 
   @Prop()
-  imageURL: string;
+  imageURL?: string;
 
   @Prop({ required: true })
   description: string;
 
   @Prop({ default: false })
-  isMainAlcohol: boolean;
+  isMainAlcohol?: boolean;
 }
 
 export const IngredientSchema = SchemaFactory.createForClass(Ingredient);

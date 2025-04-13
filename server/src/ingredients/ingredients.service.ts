@@ -1,26 +1,38 @@
-import { Injectable } from '@nestjs/common';
-import { CreateIngredientDto } from './dto/create-ingredient.dto';
-import { UpdateIngredientDto } from './dto/update-ingredient.dto';
+import { Injectable, Logger } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Ingredient } from 'src/ingredients/schemas/ingredient.schema';
+import { Model } from 'mongoose';
+import { IngredientInsertDto } from 'src/ingredients/dto/ingredients.dto';
 
 @Injectable()
 export class IngredientsService {
-  create(createIngredientDto: CreateIngredientDto) {
-    return 'This action adds a new ingredient';
-  }
+  private readonly logger = new Logger(IngredientsService.name);
 
-  findAll() {
-    return `This action returns all ingredients`;
-  }
+  constructor(
+    @InjectModel('Ingredient')
+    private readonly ingredientModel: Model<Ingredient & Document>,
+  ) {}
 
-  findOne(id: number) {
-    return `This action returns a #${id} ingredient`;
-  }
+  async insert(ingredientJson: IngredientInsertDto[]) {
+    const exisitngNames = await this.ingredientModel
+      .find({}, { name: 1 })
+      .lean();
 
-  update(id: number, updateIngredientDto: UpdateIngredientDto) {
-    return `This action updates a #${id} ingredient`;
-  }
+    const existingNameSet = new Set(exisitngNames.map((item) => item.name));
 
-  remove(id: number) {
-    return `This action removes a #${id} ingredient`;
+    const filteredSeed = ingredientJson.filter(
+      (item) => !existingNameSet.has(item.name),
+    );
+
+    if (filteredSeed.length === 0) {
+      this.logger.warn('🟡 Seed skipped: all ingredients already exist.');
+      return { message: 'Seed skipped: all ingredients already exist.' };
+    }
+
+    const insertSeeds = await this.ingredientModel.insertMany(filteredSeed);
+    this.logger.log(`🟢 Seeded ${insertSeeds.length} ingredients.`);
+    return {
+      message: `Seed completed: ${insertSeeds.length} new ingredients inserted.`,
+    };
   }
 }
