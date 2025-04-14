@@ -15,5 +15,6 @@ import {
   ],
   controllers: [IngredientsController],
   providers: [IngredientsService],
+  exports: [MongooseModule],
 })
 export class IngredientsModule {}

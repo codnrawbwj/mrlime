@@ -4,11 +4,8 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { IngredientsModule } from './ingredients/ingredients.module';
 import { ConfigModule } from '@nestjs/config';
+import { CocktailsModule } from 'src/cocktails/cocktails.module';
 
-// const mognoDB_URI = process.env.MOGNODB_URI;
-// if (!mognoDB_URI) {
-//   throw new Error('❌ MONGODB_URI is not defined.');
-// }
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -23,6 +20,7 @@ import { ConfigModule } from '@nestjs/config';
         return { uri: mognoDB_URI };
       },
     }),
+    CocktailsModule,
     IngredientsModule,
   ],
   controllers: [AppController],

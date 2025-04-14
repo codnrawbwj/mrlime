@@ -12,7 +12,7 @@ export const tasetLabelValues = [
 export type TastelabelType = (typeof tasetLabelValues)[number];
 
 @Schema()
-export class Cocktail extends Document {
+export class Cocktail {
   @Prop({ required: true })
   name: string;
 
