@@ -56,4 +56,26 @@ export class CocktailService {
       message: `Seed completed: ${insertSeeds.length} new cocktails inserted.`,
     };
   }
+
+  async getMenu() {
+    const result = await this.cocktailModel.find({});
+
+    return result;
+  }
+
+  async getAllList() {
+    return await this.cocktailModel.find({}, 'name');
+  }
+
+  async getCocktail(cocktailName: string) {
+    const formatted = cocktailName
+      .split('_')
+      .map((word) => word[0].toUpperCase() + word.slice(1))
+      .join(' ');
+
+    const result = await this.cocktailModel.find({ name: formatted });
+    if (!result) return;
+
+    return result;
+  }
 }
