@@ -1,3 +1,4 @@
+import { Types } from 'mongoose';
 import { TastelabelType } from 'src/cocktails/schemas/cocktail.schema';
 
 export type CocktailInsertDto = {
@@ -9,3 +10,9 @@ export type CocktailInsertDto = {
   tasteLabel: TastelabelType[];
   recipe: string[];
 };
+
+export class CocktailMetaListDTO {
+  _id: Types.ObjectId;
+  name: string;
+  tasteReview: string;
+}

@@ -1,7 +1,10 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Document, Model } from 'mongoose';
-import { CocktailInsertDto } from 'src/cocktails/dto/cocktails.dto';
+import {
+  CocktailInsertDto,
+  CocktailMetaListDTO,
+} from 'src/cocktails/dto/cocktails.dto';
 import { Cocktail } from 'src/cocktails/schemas/cocktail.schema';
 import { Ingredient } from 'src/ingredients/schemas/ingredient.schema';
 
@@ -77,5 +80,9 @@ export class CocktailService {
     if (!result) return;
 
     return result;
+  }
+
+  async getMetaList(): Promise<CocktailMetaListDTO[]> {
+    return await this.cocktailModel.find({}, 'name tasteReview _id').lean();
   }
 }

@@ -25,4 +25,11 @@ export class CocktailsController {
   async getOne(@Param('name') name: string) {
     return this.cocktailService.getCocktail(name);
   }
+
+  @Get('meta')
+  async getCocktailMeta(): Promise<
+    { name: string; tasteReview: string; _id: string }[]
+  > {
+    return this.cocktailService.getMetaList();
+  }
 }
