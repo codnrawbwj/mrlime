@@ -1,6 +1,7 @@
 "use client";
 import { ArrowRightIcon } from "@/assets";
 import { COCKTAIL_HASH } from "@/constant/dummy";
+import Link from "next/link";
 import { useState } from "react";
 
 const SearchBar = () => {
@@ -22,7 +23,8 @@ const SearchBar = () => {
       {searchValue && (
         <div className="mt-2">
           {COCKTAIL_HASH.slice(0, 5).map((item) => (
-            <div
+            <Link
+              href={`/cocktails/${item.name}`}
               key={item._id}
               className="py-2 flex-col hover:bg-[var(--mojito-green)] px-4"
             >
@@ -30,7 +32,7 @@ const SearchBar = () => {
               <span className="mojito-text-b text-[0.625rem]">
                 {item.tasteReview}
               </span>
-            </div>
+            </Link>
           ))}
         </div>
       )}
