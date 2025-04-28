@@ -21,15 +21,15 @@ export class CocktailsController {
     return this.cocktailService.getAllList();
   }
 
+  @Get('search')
+  async getCocktailSearchList(): Promise<
+    { name: string; tasteReview: string }[]
+  > {
+    return this.cocktailService.getSearchList();
+  }
+
   @Get(':name')
   async getOne(@Param('name') name: string) {
     return this.cocktailService.getCocktail(name);
-  }
-
-  @Get('meta')
-  async getCocktailMeta(): Promise<
-    { name: string; tasteReview: string; _id: string }[]
-  > {
-    return this.cocktailService.getMetaList();
   }
 }
