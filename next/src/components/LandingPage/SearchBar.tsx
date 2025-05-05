@@ -8,7 +8,7 @@ const SearchBar = () => {
     useSearchDropdown();
 
   return (
-    <div className="w-[300px] md:w-[600px] shadow-md rounded-2xl overflow-hidden">
+    <div className="w-[350px] md:w-[600px] shadow-md rounded-2xl overflow-hidden">
       <div className="flex items-center justify-between pr-4">
         <input
           placeholder="What's your drink?"
