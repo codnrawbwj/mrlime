@@ -24,7 +24,10 @@ const SearchBar = () => {
         <div className="mt-2">
           {relativeSearchResult.slice(0, 5).map((item) => (
             <Link
-              href={`/cocktails/${item.name}`}
+              href={`/cocktails/${item.name
+                .toLowerCase()
+                .split(" ")
+                .join("-")}`}
               key={item._id}
               className="py-2 flex-col hover:bg-[var(--mojito-green)] px-4"
             >
