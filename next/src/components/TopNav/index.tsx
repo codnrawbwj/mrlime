@@ -66,7 +66,7 @@ const TopNav = () => {
           </h2>
           <button
             className={clsx(
-              "relative w-6 h-6 transition-all duration-500 ease-in-out",
+              "relative w-6 h-6 transition-all duration-500 ease-in-out ",
               isMenuOpen
                 ? "opacity-0 translate-x[-20px] pointer-events-none"
                 : "opacity-100 translate-x-0"
@@ -77,7 +77,7 @@ const TopNav = () => {
               style={{ height: 24, width: 24 }}
               fill="var(--mojito-rum-white)"
               className={clsx(
-                "absolute top-0 left-0 transition-all duration-200 ease-in-out",
+                "absolute top-0 left-0 transition-all duration-200 ease-in-out cursor-pointer",
                 isSearchOpen ? "opacity-0 scale-90" : "opactiy-100 scale-100"
               )}
             />
@@ -85,7 +85,7 @@ const TopNav = () => {
               style={{ height: 24, width: 24 }}
               fill="var(--mojito-rum-white)"
               className={clsx(
-                "absolute top-0 left-0 transition-all duration-200 ease-in-out",
+                "absolute top-0 left-0 transition-all duration-200 ease-in-out cursor-pointer",
                 !isSearchOpen ? "opacity-0 scale-90" : "opactiy-100 scale-100"
               )}
             />

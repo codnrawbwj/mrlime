@@ -11,7 +11,7 @@ const SearchBar = () => {
     <div className="w-[300px] md:w-[600px] shadow-md rounded-2xl overflow-hidden">
       <div className="flex items-center justify-between pr-4">
         <input
-          placeholder="Ask recipes"
+          placeholder="What's your drink?"
           className="text-[1rem] focus:outline-none truncate px-6 py-4"
           // autoFocus
           onChange={(e) => setSearchValue(e.target.value)}
