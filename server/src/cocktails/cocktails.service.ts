@@ -78,4 +78,8 @@ export class CocktailService {
 
     return result;
   }
+
+  async getSearchList(): Promise<{ name: string; tasteReview: string }[]> {
+    return await this.cocktailModel.find({}, 'name tasteReview');
+  }
 }
