@@ -25,7 +25,7 @@ const TopNav = () => {
 
   return (
     <>
-      <nav className="h-20 bg-mojito-cool-teal w-full shadow-md mojito-rum-white px-4 flex-center">
+      <nav className="h-20 bg-mojito-cool-teal w-full mojito-rum-white px-4 flex-center">
         <div className="m-auto max-w-7xl w-full flex items-center justify-between px-4">
           <button
             className={clsx(
