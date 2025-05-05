@@ -41,7 +41,7 @@ const TopNavMenuPage: React.FC<{ resetSidebars: () => void }> = ({
   useLockScroll();
 
   return createPortal(
-    <div className="fixed top-20 left-0 right-0 bottom-0 overflow-hidden z-1000 w-[100vw] h-[calc(100vh-80px)] bg-mojito-rum-white flex-col items-center justify-start">
+    <div className="max-w-7xl mx-auto fixed top-20 left-0 right-0 bottom-0 overflow-hidden z-1000 w-[100vw] h-[calc(100vh-80px)] bg-mojito-rum-white flex-col items-center justify-start">
       {Menu.map((item, index) => (
         <Link
           key={index}
