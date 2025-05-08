@@ -15,24 +15,24 @@ export const Menu: MenuType[] = [
     description: "Shake it, stir it, sip it.",
     link: "/cocktails",
   },
-  {
-    title: "Ingredients",
-    description: "From rum to rosemary.",
-    link: "/ingredients",
-  },
-  {
-    title: "Collections",
-    description: "Like a playlist, but boozy.",
-    link: "/collections",
-  },
+  // {
+  //   title: "Ingredients",
+  //   description: "From rum to rosemary.",
+  //   link: "/ingredients",
+  // },
+  // {
+  //   title: "Collections",
+  //   description: "Like a playlist, but boozy.",
+  //   link: "/collections",
+  // },
   {
     title: "About Me",
     link: "/about-me",
   },
-  {
-    title: "Contact",
-    link: "/contact",
-  },
+  // {
+  //   title: "Contact",
+  //   link: "/contact",
+  // },
 ];
 
 const TopNavMenuPage: React.FC<{ resetSidebars: () => void }> = ({
