@@ -20,9 +20,15 @@ app.get("/", (req, res) => {
   res.send({ hello: "world" });
 });
 
-app.listen({ port: PORT }, (error, address) => {
-  if (error) {
-    app.log.error(error);
-    process.exit(1);
+app.listen(
+  {
+    port: PORT,
+    host: process.env.NODE_ENV === "production" ? "0.0.0.0" : "localhost",
+  },
+  (error, address) => {
+    if (error) {
+      app.log.error(error);
+      process.exit(1);
+    }
   }
-});
+);
