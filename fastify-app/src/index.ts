@@ -1,7 +1,7 @@
 import Fastify from "fastify";
 import dotenv from "dotenv";
-import { connectToMongoDB } from "../utils/mongo.js";
 import cocktailRoutes from "./routes/routes/cocktail.routes.js";
+import { connectToMongoDB } from "./utils/mongo.js";
 
 dotenv.config();
 
