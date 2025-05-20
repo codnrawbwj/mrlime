@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx src/index.ts",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'tsx' src/index.ts",
     "build": "pnpm install && tsc",
     "start": "node dist/index.js"
   },
@@ -21,6 +21,7 @@
   "devDependencies": {
     "@types/mongoose": "^5.11.97",
     "@types/node": "^22.15.3",
+    "nodemon": "^3.1.10",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   }
