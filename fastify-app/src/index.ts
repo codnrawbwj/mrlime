@@ -16,8 +16,9 @@ await connectToMongoDB(MONGODB_URI);
 
 await app.register(cocktailRoutes, { prefix: "/api" });
 
+// health check
 app.get("/", (req, res) => {
-  res.send({ hello: "world" });
+  res.send({ status: "ok" });
 });
 
 app.listen(
